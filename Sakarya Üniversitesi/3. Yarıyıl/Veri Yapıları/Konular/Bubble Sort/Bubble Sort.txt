@@ -1,0 +1,47 @@
+
+#include<stdio.h>
+#include<time.h>
+
+void bubbleSort(int array[], int size) {
+
+  for (int step = 0; step < size - 1; ++step) {
+
+    for (int i = 0; i < size - step - 1; ++i) {
+
+
+      if (array[i] > array[i + 1]) {
+
+
+        int temp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+      }
+    }
+  }
+}
+
+void printArray(int array[], int size) {
+  for (int i = 0; i < size; ++i) {
+    printf("%d  ", array[i]);
+  }
+  printf("\n");
+}
+
+int main() {
+    srand(time(NULL));
+    int n = 10;
+    int dizi[n];
+
+    for(int sayac = 0; sayac<n;sayac++)
+    {
+        dizi[sayac]=rand()%100;
+
+    }
+    printf("Before sorting array elements are - \n");
+    printArray(dizi, n);
+    bubbleSort(dizi, n);
+    printf("\nAfter sorting array elements are - \n");
+    printArray(dizi, n);
+    return 0;
+
+}
